@@ -11,6 +11,8 @@ const initMapDispatchToProps = dispatch => ({
   actions: {
     addInterval: bindActionCreators(calendar.addInterval, dispatch),
     removeInterval: bindActionCreators(calendar.removeInterval, dispatch),
+
+    clearInterval: bindActionCreators(calendar.clearInterval, dispatch),
   },
 })
 

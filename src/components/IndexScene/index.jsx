@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { array, func, number, object, shape } from 'prop-types'
-import { withStyles } from '@material-ui/core'
+import { Button, withStyles } from '@material-ui/core'
 import WeekCalendar from 'react-week-calendar'
 import Event from 'components/common/Event'
 import HeaderCell from 'components/common/HeaderCell'
@@ -25,6 +25,14 @@ const styles = ({
   calendar: {
     margin: 50,
   },
+  flexRight: {
+    marginTop: 20,
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  button: {
+    margin: 10,
+  },
 })
 
 class IndexScene extends Component {
@@ -47,6 +55,8 @@ class IndexScene extends Component {
       ...interval,
       uid: lastUid + index,
       background: getRandomColor(),
+      end: moment(interval.end),
+      start: moment(interval.start),
     }))
 
     actions.addInterval(selectedIntervals.concat(intervals), lastUid + newIntervals.length)
@@ -70,6 +80,23 @@ class IndexScene extends Component {
     this.handleSelect(data)
 
     return true
+  }
+
+  handleSaveChange = () => {
+    const { selectedIntervals } = this.props
+
+    const newSelectedIntervals = selectedIntervals.map(interval => ({
+      ...interval,
+      start: moment(interval.start).toString(),
+      end: moment(interval.end).toString(),
+    }))
+
+    localStorage.setItem('selectedIntervals', JSON.stringify(newSelectedIntervals))
+  }
+
+  handleClearInterval = () => {
+    const { actions } = this.props
+    actions.clearInterval()
   }
 
   renderEvent = props => <Event {...props} onClick={this.handleEventRemove} />
@@ -102,6 +129,11 @@ class IndexScene extends Component {
               onIntervalSelect={this.handleSelect}
               onIntervalRemove={this.handleEventRemove}
             />
+
+            <div className={classes.flexRight}>
+              <Button className={classes.button} onClick={this.handleClearInterval}>Clear</Button>
+              <Button className={classes.button} onClick={this.handleSaveChange}>Save Changes</Button>
+            </div>
           </div>
         </div>
       </div>

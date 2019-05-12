@@ -26,6 +26,7 @@ module.exports = {
     'no-unused-vars': 0,
     'camelcase': 0,
     'no-plusplus': 'off',
+    'class-methods-use-this': 'off',
     'import/prefer-default-export': false,
     'react/jsx-filename-extension': false,
     'react/require-default-props': false,

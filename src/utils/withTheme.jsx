@@ -42,6 +42,25 @@ const theme = createMuiTheme({
       dark: '#ff0033',
     },
   },
+
+  overrides: {
+    MuiButton: {
+      root: {
+        fontSize: 14,
+        color: 'white',
+        fontWeight: 300,
+        borderRadius: 4,
+        fontFamily: 'Fira Sans, sans-serif',
+        '-webkit-appearance': 'none',
+        backgroundColor: '#b4b4b4',
+        boxShadow: '0px 2px 0px rgba(0,0,0,0.15)',
+        '-webkit-box-shadow': '0px 2px 0px rgba(0,0,0,0.15)',
+        '&:hover': {
+          color: 'black',
+        },
+      },
+    },
+  },
 })
 
 function withRoot(Component) {

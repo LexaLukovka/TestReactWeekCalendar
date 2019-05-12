@@ -1,11 +1,28 @@
-import { ADD_INTERVAL, REMOVE_INTERVAL } from './action'
+import { ADD_INTERVAL, CLEAR_INTERVAL, REMOVE_INTERVAL } from './action'
+import moment from 'moment'
 
-const initialState = {
-  lastUid: 0,
-  selectedIntervals: [],
+const initialState = () => {
+  const selectedIntervals = JSON.parse(localStorage.getItem('selectedIntervals'))
+  if (selectedIntervals) {
+    const newSelect = selectedIntervals.map(value => ({
+      ...value,
+      start: moment(value.start),
+      end: moment(value.end),
+    }))
+
+    return {
+      lastUid: newSelect.length || 0,
+      selectedIntervals: newSelect || [],
+    }
+  }
+
+  return {
+    lastUid: 0,
+    selectedIntervals: [],
+  }
 }
 
-const calendarReducer = (state = initialState, { type, payload, meta }) => {
+const calendarReducer = (state = initialState(), { type, payload, meta }) => {
   switch (type) {
     case ADD_INTERVAL:
       return {
@@ -23,6 +40,12 @@ const calendarReducer = (state = initialState, { type, payload, meta }) => {
         selectedIntervals: [...selectedIntervals],
       }
     }
+
+    case CLEAR_INTERVAL:
+      return {
+        ...state,
+        selectedIntervals: [],
+      }
 
     default: {
       return state
