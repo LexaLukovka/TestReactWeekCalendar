@@ -92,7 +92,7 @@ class IndexScene extends Component {
   }
 
   handleSaveChange = () => {
-    const { selectedIntervals } = this.props
+    const { selectedIntervals, actions } = this.props
 
     const newSelectedIntervals = selectedIntervals.map(interval => ({
       ...interval,
@@ -101,6 +101,8 @@ class IndexScene extends Component {
     }))
 
     localStorage.setItem('selectedIntervals', JSON.stringify(newSelectedIntervals))
+
+    actions.showMessage('Save intervals')
   }
 
   handleClearInterval = () => {
@@ -157,6 +159,7 @@ IndexScene.propTypes = {
   actions: shape({
     addInterval: func.isRequired,
     removeInterval: func.isRequired,
+    showMessage: func.isRequired,
   }),
 }
 

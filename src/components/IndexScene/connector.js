@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import calendar from 'src/redux/calendar/action'
+import calendar from 'src/redux/app/calendar/action'
+import alert from 'src/redux/app/alert/action'
 
 const initMapStateToProps = store => ({
   lastUid: store.calendar.lastUid,
@@ -13,6 +14,7 @@ const initMapDispatchToProps = dispatch => ({
     removeInterval: bindActionCreators(calendar.removeInterval, dispatch),
 
     clearInterval: bindActionCreators(calendar.clearInterval, dispatch),
+    showMessage: bindActionCreators(alert.show, dispatch),
   },
 })
 

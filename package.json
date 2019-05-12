@@ -22,7 +22,8 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-week-calendar": "https://github.com/LexaLukovka/react-week-calendar#checked",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.2"
   },
   "devDependencies": {
     "babel": "^6.23.0",

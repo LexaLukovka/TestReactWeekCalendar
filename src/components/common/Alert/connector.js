@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import alert from 'src/redux/alert/action'
+import alert from 'src/redux/app/alert/action'
 
 const initMapStateToProps = store => ({
   isVisible: store.alert.isVisible,
