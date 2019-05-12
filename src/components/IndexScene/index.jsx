@@ -10,9 +10,9 @@ import 'react-week-calendar/dist/style.less'
 import moment from 'moment'
 import connector from './connector'
 
-const styles = ({
+const styles = theme => ({
   root: {
-    paddingTop: 64,
+    marginTop: 64,
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -21,9 +21,18 @@ const styles = ({
   container: {
     alignSelf: 'center',
     width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      alignSelf: 'flex-start',
+    },
   },
   calendar: {
     margin: 50,
+    [theme.breakpoints.down('md')]: {
+      margin: 20,
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: 5,
+    },
   },
   flexRight: {
     marginTop: 20,
