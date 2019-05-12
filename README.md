@@ -1,10 +1,7 @@
-## Getting started Backend
-https://github.com/LexaLukovka/test
-
 ## Getting started Frontend
 Close your project in *http://localhost:2000/*
 
-    $ git clone https://github.com/LexaLukovka/IncodeFrontend
+    $ git clone https://github.com/LexaLukovka/TestReactWeekCalendar
     $ npm install
     $ npm run start
 
