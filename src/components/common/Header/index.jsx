@@ -9,13 +9,14 @@ const styles = theme => ({
     color: 'white',
   },
   appBar: {
-    background: theme.palette.primary.main,
+    background: 'transparent',
   },
   toolbar: {
     display: 'flex',
   },
   title: {
     flex: 1,
+    color: '#949494',
     textAlign: 'center',
     textTransform: 'uppercase',
     [theme.breakpoints.up('sm')]: {
@@ -26,7 +27,7 @@ const styles = theme => ({
 
 const Header = ({ classes }) =>
   <header className={classes.root}>
-    <AppBar className={classes.appBar}>
+    <AppBar className={classes.appBar} elevation={0}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" color="secondary" className={classes.title}>
           <Link to="/">set schedule</Link>

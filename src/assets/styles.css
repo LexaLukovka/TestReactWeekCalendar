@@ -3,8 +3,10 @@ html, body {
     padding: 0;
     height: 100%;
     font-size: 16pt;
+    background: #f9f9fb;
     font-family: Roboto, sans-serif;
 }
+
 @media only screen and (max-width: 1280px) {
     html, body {
         font-size: 15pt;
@@ -25,10 +27,12 @@ html, body {
 
 #root {
     height: 100%;
+    background: #f9f9fb;
 }
 
 #root > div {
     height: 100%;
+    background: #f9f9fb;
 }
 
 a {
