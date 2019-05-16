@@ -3,8 +3,8 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 const theme = createMuiTheme({
-  useNextVariants: true,
   typography: {
+    useNextVariants: true,
     fontSize: 13,
     title: {
       letterSpacing: '0',
